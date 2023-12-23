@@ -1,1 +1,43 @@
-<p>search-page works!</p>
+<div class="flex flex-column p-2">
+
+  <h3>Search</h3>
+
+  <mat-form-field>
+    <mat-label>Search Heroes</mat-label>
+    <input
+      type="text"
+      title="Search Heroes"
+      matInput
+      [formControl]="searchInput"
+      (input)="searchHero()"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="onSelectedOption( $event )"
+    >
+      @for(hero of heroes; track hero){
+        <mat-option [value]="hero">
+          <!-- <mat-option *ngFor="let hero of heroes" [value]="hero"> *ngFor Doesn't work in Angular17 -->
+          {{ hero.superhero }}
+        </mat-option>
+      }
+      @if(heroes.length === 0 && searchInput.value && searchInput.value.length > 0){
+        <mat-option value="">
+          No se encontró nada con el término {{ searchInput.value }}
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <!-- <pre>{{ searchInput | json }}</pre> Doesn't work in Angular17  -->
+  <!-- {{ selectedHero | json }} Doesn't work in Angular17 -->
+
+  @if(selectedHero){
+    
+    <div class="col-12 sm:col-4 md:col-3 xl:col-2">
+      <heroes-hero-card [hero]="selectedHero"></heroes-hero-card>
+    </div>
+  }
+
+</div>

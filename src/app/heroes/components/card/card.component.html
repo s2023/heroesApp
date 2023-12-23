@@ -1,0 +1,49 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>{{ hero.superhero }}</mat-card-title>
+    <mat-card-subtitle>{{ hero.alter_ego }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- {{ hero | heroImage }} -->
+  <img mat-card-image [src]="hero | heroImage" [alt]="hero.superhero" [title]="hero.superhero">
+  <!-- <img mat-card-image [src]="'assets/heroes/' + hero.id + '.jpg'" [alt]="hero.superhero"> without pipe -->
+
+  <mat-card-content class="mt-2">
+    <h4>{{ hero.publisher }}</h4>
+    <p>
+      <strong>First appearance</strong> {{ hero.first_appearance }}
+      <br>
+      <mat-chip-listbox>
+        @for(name of hero.characters.split(',').slice(0,3); track name){
+          <mat-chip>
+            {{ name }}
+          </mat-chip>
+        }
+        <!-- <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
+          {{ name }}
+        </mat-chip> *ngFor and pipe slice:0:3 Doesn't work in Angular17 -->
+      </mat-chip-listbox>
+    </p>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    <button mat-button
+      mat-raised
+      color="primary"
+      [routerLink]="['/heroes/edit', hero.id ]">
+      <mat-icon>edit</mat-icon>
+      Edit
+    </button>
+    <span class="spacer"></span>
+    <button mat-button
+      mat-raised
+      [routerLink]="['/heroes', hero.id ]">
+      <mat-icon>more_horiz</mat-icon>
+      More info
+    </button>
+  </mat-card-actions>
+
+</mat-card>

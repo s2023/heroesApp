@@ -1,1 +1,25 @@
-<p>login-page works!</p>
+<div class="flex flex-column">
+
+  <span class="text-lg mb-4">Log In</span>
+
+  <mat-form-field>
+    <mat-label>Nickname</mat-label>
+    <input type="text" matInput placeholder="Nickname">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="Password">
+  </mat-form-field>
+
+  <button mat-button mat-flat-button color="primary">
+    <mat-icon>save</mat-icon>
+    <a routerLink="/heroes/list">Login</a>
+  </button>
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/register">You don't have an account?</a>
+  </div>
+
+</div>
+
