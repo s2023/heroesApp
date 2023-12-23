@@ -9,7 +9,6 @@
     "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist",
     "build:href": "ng build --base-href ./",
     "copy:dist": "copyfiles dist/heroes-app/** ./docs -f",
-    "copy:dist": "copyfiles dist/heroes-app/** ./docs -f --exclude dist/heroes-app/browser/assets/** && copyfiles dist/heroes-app/browser/assets/** ./docs/assets -f" ,
     "delete:docs": "del docs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

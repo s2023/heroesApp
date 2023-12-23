@@ -1,3 +1,3 @@
 export const environments = {
-  baseUrl: 'https://fernando-herrera.com/api'
+  baseUrl: 'https://s2023.github.io/heroesApp'
 }
