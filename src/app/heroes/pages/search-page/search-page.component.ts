@@ -25,16 +25,13 @@ export class SearchPageComponent {
   }
 
   onSelectedOption( event: MatAutocompleteSelectedEvent ): void {
-
     if ( !event.option.value ) {
       this.selectedHero = undefined;
       return;
     }
-
     const hero: Hero = event.option.value;
     this.searchInput.setValue( hero.superhero );
     this.selectedHero = hero;
-    
   }
 
 }

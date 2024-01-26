@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "name": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
@@ -21,7 +21,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": null
     },
     {
       "id": "dc-flash",
@@ -166,6 +167,33 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "D_tkICA",
+      "superhero": "Dr. Strange",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Stephen Vincent Strange",
+      "first_appearance": "Strange Tales #110 ",
+      "characters": "Stephen Vincent Strange",
+      "alt_img": "https://th.bing.com/th/id/OIP.-WYQBHcux_ILLGaaBSOrSwHaLH?rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": "Yc_dXuF",
+      "superhero": "Magneto",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Erik Lehnsherr",
+      "first_appearance": "Uncanny X-Men vol. 1 # 1",
+      "characters": "Erik Lehnsherr",
+      "alt_img": "https://th.bing.com/th/id/OIP.ef4dzXmk53WpYiEZpn2azgHaL4?rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": "_So6sxi",
+      "superhero": "Joker",
+      "publisher": "DC Comics",
+      "alter_ego": "Arthur Fleck",
+      "first_appearance": "Batman # 1 1940",
+      "characters": "Arthur Fleck, Jack Napier, Jack Oswald White",
+      "alt_img": "https://th.bing.com/th/id/OIP.94wFZt_oyLZ_IokaxLL7_QHaL-?rs=1&pid=ImgDetMain"
     }
   ]
 }

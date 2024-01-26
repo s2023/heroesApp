@@ -1,11 +1,23 @@
-<!-- TODO: pipe to edit/add hero to CRUD -->
-<h1>
-    Edit / Add
-    hero
-    <br>
-    <small>Batman</small>
-</h1>
-  
+<div class="flex justify-content-between">
+  <h1>
+    {{ currentHero.id ? 'Edit' : 'Add' }}
+    hero:
+    @if(currentHero.id){
+      <small>{{ currentHero.superhero }}</small>
+    }
+  </h1>
+  @if(currentHero.id){
+    <button
+      mat-button
+      color="warn"
+      (click)="goBack()"
+    >
+      Cancel/Go back
+      <mat-icon>undo</mat-icon>
+    </button>
+  }
+</div>
+
 <mat-divider class="mb-2"></mat-divider>
 
 <div class="grid">
@@ -14,14 +26,15 @@
     <mat-card>
       <mat-card-content>
 
-        <div class="grid">
+        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
 
           <mat-form-field class="col-12 sm:col-6">
-            <mat-label>Super héroe</mat-label>
+            <mat-label>Superhero Name</mat-label>
             <input
               matInput
               type="text"
               required
+              formControlName="superhero"
             />
           </mat-form-field>
 
@@ -31,30 +44,36 @@
               matInput
               type="text"
               required
+              formControlName="alter_ego"
             />
           </mat-form-field>
 
           <mat-form-field class="col-12">
-            <mat-label>Primera aparición</mat-label>
+            <mat-label>First appearance</mat-label>
             <input
               matInput
               type="text"
               required
+              formControlName="first_appearance"
             />
           </mat-form-field>
 
           <mat-form-field class="col-12">
-            <mat-label>Personajes</mat-label>
+            <mat-label>Characters</mat-label>
             <input
               matInput
               type="text"
               required
+              formControlName="characters"
             />
           </mat-form-field>
 
           <mat-form-field class="col-12">
-            <mat-label>Creador</mat-label>
-            <mat-select required="">
+            <mat-label>Publisher</mat-label>
+            <mat-select
+              formControlName="publisher"
+              required
+            >
               @for(publisher of publishers; track publisher){
                 <mat-option [value]="publisher.id">
                 <!-- <mat-option *ngFor="let publisher of publishers "[value]="publisher.id"> *ngFor Doesn't work in Angular17-->
@@ -64,25 +83,37 @@
             </mat-select>
           </mat-form-field>
 
-        </div>
+          <mat-form-field class="col-12">
+            <mat-label>Alternative Image</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="alt_img"
+            />
+          </mat-form-field>
+
+        </form>
 
         <div class="flex justify-content-between">
-
-          <button
-            mat-flat-button
-            color="warn"
-          >
-            Borrar
-          </button>
-
+          @if(currentHero.id){
+            <button
+              mat-flat-button
+              color="warn"
+              (click)="onDeleteHero()"
+            >
+              <mat-icon>delete_forever</mat-icon>
+              Delete
+            </button>
+          }
+          <span></span>
           <button
             mat-flat-button
             color="primary"
+            (click)="onSubmit()"
           >
             <mat-icon>save</mat-icon>
-            Guardar
+            {{ (currentHero.id) ? 'Update' : 'Create' }}
           </button>
-
         </div>
 
       </mat-card-content>
@@ -91,11 +122,12 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img mat-card-image src="" alt="hero image" title="hero name">
+      <img mat-card-image [src]="currentHero | heroImage" alt="hero image" title="hero name">
     </mat-card>
   </div>
 
 </div>
-  
-  
-  
+
+<!-- <pre>
+{{ currentHero | json }}
+</pre> Doesn't work on Angular 17 -->

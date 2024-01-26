@@ -1,5 +1,5 @@
 @if(hero) {
-  <!-- ngIf="hero; else divLoading" It doesn't work in angular 17 -->
+  <!-- ngIf="hero; else divLoading" It doesn't work on angular 17 -->
   <div class="grid p-2">
 
     <mat-card class="col-12 sm:col-6">
@@ -9,7 +9,7 @@
       </mat-card-header>
       <img mat-card-image [src]="hero | heroImage" [alt]="hero.superhero" [title]="hero.superhero"/>
     </mat-card>
-  
+
     <mat-card class="col-12 sm:col-6">
       <mat-card-header>
         <mat-card-title>Hero Information</mat-card-title>
@@ -18,7 +18,7 @@
       <mat-card-content>
         <mat-list>
           <mat-list-item><em>- First appearance: </em>{{ hero.first_appearance }}.</mat-list-item>
-          <mat-list-item><div class="hero-char"><em>- Characters: </em>{{ hero.characters }}.</div></mat-list-item>          
+          <mat-list-item><div class="hero-char"><em>- Characters: </em>{{ hero.characters }}.</div></mat-list-item>
           <mat-list-item><em>- Publisher: </em>{{ hero.publisher }}.</mat-list-item>
           <mat-list-item><em>- Alter ego: </em>{{ hero.alter_ego }}.</mat-list-item>
         </mat-list>
@@ -27,13 +27,14 @@
           color="warn"
           (click)="goBack()"
         >
+          <mat-icon>undo</mat-icon>
           Go back
         </button>
       </mat-card-content>
     </mat-card>
-  
+
   </div>
-  
+
 }
 @else {
   <!-- <ng-template #divLoading> -->

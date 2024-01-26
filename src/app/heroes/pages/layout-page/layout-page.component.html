@@ -1,7 +1,7 @@
 <mat-sidenav-container fullscreen>
 
   <mat-sidenav #sidenav mode="push" class="side-nav">
-  <!-- <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }"> No funcionó tampoco ng-style=-->
+  <!-- <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }"> Doesn't work ng-style=-->
 
     <mat-toolbar>
       <span>Menú</span>
@@ -12,7 +12,7 @@
     </mat-toolbar>
 
     <mat-nav-list>
-      <!-- No colocar "let item" para el @for -->
+      <!-- Don't place "let item" to @for on Angular 17 -->
       @for (item of sidebarItems; track item) {
         <mat-list-item
         [routerLink]="item.url"
@@ -22,6 +22,7 @@
           {{ item.label }}
         </mat-list-item>
       }
+
       <!-- <mat-list-item
         *ngFor="let item of sidebarItems"
         [routerLink]="item.url"
@@ -29,7 +30,7 @@
       >
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         {{ item.label }}
-      </mat-list-item> No funciona en A17-->
+      </mat-list-item> Doesn't work on A17-->
     </mat-nav-list>
 
   </mat-sidenav>
@@ -39,8 +40,13 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span class="spacer"></span>
-    <button mat-button style="background-color: #6b7acf">
-    <a routerLink="/auth/login">Logout</a>
+    <button
+      mat-raised-button
+      color="primary"
+      style="background-color: #6b7acf"
+    >
+      <mat-icon>logout</mat-icon>
+      <a routerLink="/auth/login">Logout</a>
     </button>
   </mat-toolbar>
 
