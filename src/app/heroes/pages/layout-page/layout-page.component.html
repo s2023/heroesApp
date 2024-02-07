@@ -36,18 +36,26 @@
   </mat-sidenav>
 
   <mat-toolbar color="primary">
+
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+
     <span class="spacer"></span>
+    <span class="userlogged">
+      <mat-icon>person</mat-icon>
+      {{ user?.email }}
+    </span>
+
     <button
       mat-raised-button
+      (click)="onLogout()"
       color="primary"
-      style="background-color: #6b7acf"
     >
       <mat-icon>logout</mat-icon>
-      <a routerLink="/auth/login">Logout</a>
+      Logout
     </button>
+
   </mat-toolbar>
 
   <div class="container p-2">

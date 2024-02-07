@@ -1,5 +1,6 @@
 <div class="flex flex-column">
 
+  <h1>Heroes App</h1>
   <span class="text-lg mb-4">Log In</span>
 
   <mat-form-field>
@@ -12,9 +13,9 @@
     <input type="password" matInput placeholder="Password">
   </mat-form-field>
 
-  <button mat-button mat-flat-button color="primary">
-    <mat-icon>save</mat-icon>
-    <a routerLink="/heroes/list">Login</a>
+  <button mat-flat-button color="primary" (click)="onLogin()">
+    <mat-icon>login</mat-icon>
+    Login
   </button>
 
   <div class="flex justify-content-end mt-5">
